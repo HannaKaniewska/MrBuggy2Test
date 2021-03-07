@@ -1,0 +1,14 @@
+{
+  "dataSet": [
+    {
+      "projectName": "HK Project 1",
+      "projectPrefix": "HKPRO1",
+      "projectUsers": [
+        {
+          "userRole": "LEADER",
+          "userEmail": "admin@tc2014.pl"
+        }
+      ]
+    }
+  ]
+}

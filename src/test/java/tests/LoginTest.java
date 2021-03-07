@@ -1,6 +1,6 @@
 package tests;
 
-import businessLayer.LoginData;
+import businessLayer.LoginBL;
 import utils.exceptions.NoSuchDriverException;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -40,26 +40,26 @@ public class LoginTest extends BaseTest{
         cockpitPage = loginPage.performLogin(validEmail, validPassword);
         //Check if Cockpit page is loaded
         try {
-            Assert.assertTrue(cockpitPage.isCorrectPageTitle("kokpit"));
+            Assert.assertTrue(cockpitPage.isCorrectPageLoaded());
             testReport.pass("Test passed");
         } catch (AssertionError e) {
-            testReport.fail("Test failed. Expected page title: KOKPIT", getScreenShot());
+            testReport.fail("Test failed. Expected page: KOKPIT", getScreenShot());
             throw e;
         }
     }
 
     @Test(dataProvider = "getData")
-    public void invalid_login_test(LoginData data) throws IOException {
-        testReport = reports.createTest(data.testCase);
-        testReport.info("Login email: " + data.email + ", password: " + data.password);
+    public void invalid_login_test(LoginBL loginData) throws IOException {
+        testReport = reports.createTest(loginData.testCase);
+        testReport.info("Login email: " + loginData.email + ", password: " + loginData.password);
 
-        loginPage = loginPage.performInvalidLogin(data.email, data.password);
+        loginPage = loginPage.performInvalidLogin(loginData.email, loginData.password);
         //Check if the error messages are displayed
         try {
-            Assert.assertTrue(loginPage.isErrorMessageListVisible(data.errorMessageList));
+            Assert.assertTrue(loginPage.isErrorMessageListVisible(loginData.errorMessageList));
             testReport.pass("Test passed");
         } catch (AssertionError e) {
-            testReport.fail("Test failed. Expected message: " + data.errorMessageList, getScreenShot());
+            testReport.fail("Test failed. Expected message: " + loginData.errorMessageList, getScreenShot());
             throw e;
         }
     }

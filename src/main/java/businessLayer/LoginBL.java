@@ -2,7 +2,7 @@ package businessLayer;
 
 import java.util.List;
 
-public class LoginData {
+public class LoginBL {
     public String testCase;
     public String email;
     public String password;

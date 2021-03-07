@@ -27,6 +27,7 @@ public abstract class BaseTest {
     protected ExtentReports reports;
     protected ExtentTest testReport;
     protected CockpitPage cockpitPage;
+    //TODO: przenieść te stałe do pliku JSON
     protected String loginUrl = "http://demo.mrbuggy2.testarena.pl/zaloguj";
     protected String validEmail = "admin@tc2014.pl";
     protected String validPassword = "12qwAS";

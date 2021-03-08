@@ -1,6 +1,7 @@
 package partials;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +10,8 @@ import pages.CockpitPage;
 import pages.ProjectListPage;
 import utils.SeleniumHelper;
 
+import java.nio.channels.WritableByteChannel;
+import java.util.List;
 import java.util.Locale;
 
 public class TopPanel {
@@ -23,11 +26,14 @@ public class TopPanel {
     @FindBy (xpath = "//h1[@class='content_title']")
     protected WebElement pageTitleSection;
 
-    //Menu panel
+    //Menu section
     @FindBy (xpath = "//a[@class='activeMenu']")
     protected WebElement activeMenuElement;
 
-    //Set active project panel
+    @FindBy (id = "left_header_menu")
+    protected WebElement leftMenuSection;
+
+    //Set active project section
     @FindBy (id = "activeProject_chosen")
     protected WebElement activeProjectLink;
 
@@ -60,6 +66,18 @@ public class TopPanel {
                 .equals(menuItem.toLowerCase(Locale.ROOT)));
     }
 
+    public void setActiveMenuElement(String menuElementName) {
+        List<WebElement> menuItemList = leftMenuSection.findElements(By.xpath("//ul[@class='menu']/li"));
+        for (WebElement item : menuItemList) {
+            WebElement menuItem = item.findElement(By.tagName("a"));
+            if (menuItem.getText().toLowerCase(Locale.ROOT)
+                    .equals(menuElementName.toLowerCase(Locale.ROOT))) {
+                item.click();
+                return;
+            }
+        }
+    }
+
     public TopPanel setActiveProject(String projectName) {
         activeProjectLink.click();
         searchActiveProjectInput.click();
@@ -73,4 +91,5 @@ public class TopPanel {
         return (activeProjectLink.getText().toLowerCase(Locale.ROOT)
             .equals(projectName.toLowerCase(Locale.ROOT)));
     }
+
 }

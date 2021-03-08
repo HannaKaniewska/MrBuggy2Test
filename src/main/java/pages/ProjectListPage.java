@@ -6,21 +6,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import partials.SearchPanel;
 import partials.TopPanel;
 import utils.ProjectStatus;
 import utils.SeleniumHelper;
 import utils.exceptions.NoSuchProjectException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProjectListPage extends TopPanel {
-
-    //Search panel
-    @FindBy (id = "search")
-    private WebElement searchInput;
-
-    @FindBy (id = "j_filterButton")
-    private WebElement searchButton;
 
     //Buttons panel
     @FindBy (xpath = "//a[text()='Dodaj projekt']")
@@ -31,6 +26,8 @@ public class ProjectListPage extends TopPanel {
     private By projectStatusLocator = By.xpath("//td[@class='t_status']");
     private By projectNameLocator = By.xpath("//section[@id='content']//table//td/a");
 
+    private SearchPanel searchPanel;
+
 
     public ProjectListPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -38,17 +35,16 @@ public class ProjectListPage extends TopPanel {
         this.helper = new SeleniumHelper(driver);
         log = Logger.getLogger(ProjectListPage.class);
         this.pageTitle = "Projekty";
+        this.searchPanel = new SearchPanel(driver);
     }
 
-    public ProjectListPage performSearchForProject(String searchText) {
-        searchInput.click();
-        searchInput.sendKeys(searchText);
-        searchButton.click();
-        return this;
+    public void performSearch(String searchText) {
+        searchPanel.performSearch(searchText);
     }
 
-    public boolean isProjectFound() {
-        return driver.findElements(resultsTableLocator).size() > 0;
+
+    public boolean isProjectFound(String projectName) {
+        return(getProjectFromResultsTable(projectName) != null);
     }
 
     public ProjectStatus getProjectStatus() {
@@ -68,16 +64,21 @@ public class ProjectListPage extends TopPanel {
         return new AddProjectPage(driver);
     }
 
-    public ProjectDetailsPage enterProjectDetails (String expectedProjectName) throws NoSuchProjectException {
+    private WebElement getProjectFromResultsTable(String projectName) {
         List<WebElement> projectList = driver.findElements(projectNameLocator);
-        boolean projectFound = false;
         for (WebElement project : projectList) {
-            if (project.getText().equals(expectedProjectName)) {
-                project.click();
-                projectFound = true;
+            if (project.getText().equals(projectName)) {
+                return project;
             }
         }
-        if (! projectFound) {
+        return null;
+    }
+
+    public ProjectDetailsPage showProjectDetails(String expectedProjectName) throws NoSuchProjectException {
+        WebElement projectItem = getProjectFromResultsTable(expectedProjectName);
+        if (projectItem != null) {
+            projectItem.click();
+        } else {
             throw new NoSuchProjectException();
         }
         return new ProjectDetailsPage(driver);

@@ -56,7 +56,7 @@ public class LoginPage {
 
     public CockpitPage performLogin (String email, String password) {
         //perform login with valid credentials
-        setEmail(email)
+        this.setEmail(email)
             .setPassword(password)
             .clickLogin();
         log.info("Login action performed");

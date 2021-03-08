@@ -39,6 +39,7 @@ public class TopPanel {
     protected Logger log;
     protected String pageTitle;
 
+
     public ProjectListPage enterAdminPanel() {
         administrationLink.click();
         return new ProjectListPage(driver);

@@ -5,8 +5,6 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.MediaEntityModelProvider;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import utils.exceptions.NoSuchDriverException;
-import utils.SeleniumHelper;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
@@ -18,6 +16,8 @@ import pages.CockpitPage;
 import pages.LoginPage;
 import utils.DriverFactory;
 import utils.DriverType;
+import utils.SeleniumHelper;
+import utils.exceptions.NoSuchDriverException;
 
 import java.io.IOException;
 

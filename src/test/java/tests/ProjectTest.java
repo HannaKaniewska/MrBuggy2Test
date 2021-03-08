@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.AddProjectPage;
 import pages.ProjectListPage;
 import pages.ProjectDetailsPage;
@@ -23,7 +24,8 @@ public class ProjectTest extends BaseTest{
 
     @Test(dataProvider = "getData")
     public void addProjectTest(ProjectBL projectData) throws IOException, NoSuchProjectException {
-        testReport = reports.createTest("Add project with Environment, Release and Phase");
+        testReport = reports.createTest("Add project");
+        SoftAssert softAssert = new SoftAssert();
 
         //TODO: użyć TestListenera, żeby obsłużyć wszystkie statusy asercji
         //Step 1. Log in
@@ -33,7 +35,7 @@ public class ProjectTest extends BaseTest{
         //Step 2. Enter Administration panel
         ProjectListPage projectListPage = cockpitPage.enterAdminPanel();
         Assert.assertTrue(projectListPage.isCorrectPageLoaded());
-        Assert.assertTrue(projectListPage.isMenuItemActive("Projekty"));
+        softAssert.assertTrue(projectListPage.isMenuItemActive("Projekty"));
         testReport.pass("2. Enter Administration panel", getScreenShot());
 
         //Step 3. Search for project using prefix
@@ -66,11 +68,13 @@ public class ProjectTest extends BaseTest{
         //Step 6. Enter Details page for the new project
         ProjectDetailsPage projectDetailsPage = projectListPage
                 .enterProjectDetails(projectData.projectName);
+        Assert.assertTrue(projectDetailsPage.isCorrectPageLoaded());
         testReport.pass("6. Enter Details page for the new project", getScreenShot());
 
         //Step 7. Add users to project
         for (ProjectUserBL user: projectData.projectUsers) {
             projectDetailsPage.addUserToProjectRole(user.userRole, user.userEmail);
+            softAssert.assertTrue(projectDetailsPage.isUserInProjectRole(user.userRole, user.userEmail));
         }
         testReport.pass("7. Add user to project as a Leader", getScreenShot());
 

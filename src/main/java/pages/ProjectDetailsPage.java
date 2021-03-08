@@ -19,8 +19,13 @@ public class ProjectDetailsPage extends TopPanel {
     @FindBy(xpath = "//form[@name='j_editUsersForm']//tbody")
     private WebElement rolesTable;
 
+    private By rowsLocator = By.tagName("tr");
     private By roleNameCellLocator = By.xpath("td[@class='t_status']");
     private By searchUserInputLocator = By.id("token-input-users");
+    private By userCellLocator = By.tagName("span");
+    private By userDropDownLocator = By.xpath("//div[@class='token-input-dropdown-facebook']/ul");
+    private By addUserButtonLocator = By.className("j_editUsers");
+    private By saveButtonLocator = By.className("j_saveUsers");
 
 
     public ProjectDetailsPage(WebDriver driver) {
@@ -31,26 +36,45 @@ public class ProjectDetailsPage extends TopPanel {
         this.pageTitle = "Właściwości projektu";
     }
 
-    public ProjectDetailsPage addUserToProjectRole(String roleName, String userEmail) {
-        List<WebElement> rows = rolesTable.findElements(By.tagName("tr"));
+    public boolean isUserInProjectRole(String roleName, String userEmail) {
+        List<WebElement> rows = rolesTable.findElements(rowsLocator);
+        boolean isUserFound = false;
         for (WebElement row: rows) {
             //search for the role with expected role name
             WebElement roleCell = row.findElement(roleNameCellLocator);
             if (roleCell.getText().toLowerCase(Locale.ROOT).equals(roleName.toLowerCase(Locale.ROOT))) {
-                //click "Add/Delete Users" button
-                WebElement addUserButton = row.findElement(By.className("j_editUsers"));
-                addUserButton.click();
-                //enter user name in search input
-                WebElement searchInput = row.findElement(searchUserInputLocator);
-                searchInput.click();
-                searchInput.sendKeys(userEmail);
-                //choose first item on the drop-down list
-                helper.waitForElementToBeDisplayed(By.xpath("//div[@class='token-input-dropdown-facebook']/ul"));
-                searchInput.sendKeys(Keys.ARROW_DOWN);
-                searchInput.sendKeys(Keys.ENTER);
-                //perform save
-                WebElement saveButton = row.findElement(By.className("j_saveUsers"));
-                saveButton.click();
+                //check if the user is already attached to this role
+                WebElement usersCell = row.findElement(userCellLocator);
+                isUserFound = usersCell.getText().contains(userEmail);
+            }
+        }
+        return isUserFound;
+    }
+
+    public ProjectDetailsPage addUserToProjectRole(String roleName, String userEmail) {
+        List<WebElement> rows = rolesTable.findElements(rowsLocator);
+        for (WebElement row: rows) {
+            //search for the role with expected role name
+            WebElement roleCell = row.findElement(roleNameCellLocator);
+            if (roleCell.getText().toLowerCase(Locale.ROOT).equals(roleName.toLowerCase(Locale.ROOT))) {
+                //check if the user is already attached to this role, if it isn't -> add user to this role
+                WebElement usersCell = row.findElement(userCellLocator);
+                if (!usersCell.getText().contains(userEmail)) {
+                    //click "Add/Delete Users" button
+                    WebElement addUserButton = row.findElement(addUserButtonLocator);
+                    addUserButton.click();
+                    //enter user name in search input
+                    WebElement searchInput = row.findElement(searchUserInputLocator);
+                    searchInput.click();
+                    searchInput.sendKeys(userEmail);
+                    //choose first item on the drop-down list
+                    helper.waitForElementToBeDisplayed(userDropDownLocator);
+                    searchInput.sendKeys(Keys.ARROW_DOWN);
+                    searchInput.sendKeys(Keys.ENTER);
+                    //perform save
+                    WebElement saveButton = row.findElement(saveButtonLocator);
+                    saveButton.click();
+                }
             }
         }
         return this;

@@ -1,5 +1,6 @@
 package utils;
 
+import businessLayer.EnvironmentBL;
 import businessLayer.LoginBL;
 import businessLayer.ProjectBL;
 import com.google.gson.Gson;
@@ -40,4 +41,19 @@ public abstract class JsonUtils {
         }
         return projectData;
     }
+
+    public static Object[][] getEnvironmentData() throws FileNotFoundException {
+        //read JSON file with environment data
+        JsonElement jsonData = new JsonParser().parse(new FileReader("src/test/resources/data/EnvironmentData.json"));
+        JsonElement dataSet = jsonData.getAsJsonObject().get("dataSet");
+        List<LoginBL> testData = new Gson().fromJson(dataSet, new TypeToken<List<EnvironmentBL>>() {}
+                .getType());
+        Object[][] environmentData = new Object[testData.size()][1];
+        int index = 0;
+        for (Object[] each : environmentData) {
+            each[0] = testData.get(index++);
+        }
+        return environmentData;
+    }
+
 }

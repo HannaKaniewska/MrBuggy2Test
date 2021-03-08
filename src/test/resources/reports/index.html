@@ -46,7 +46,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Mar 8, 2021 12:42:37 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Mar 8, 2021 06:38:52 PM</span>
 				</a>
 			</li>
 			<li>
@@ -71,7 +71,8 @@
 					<i class='material-icons'>warning</i> Status
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
-										<li class='divider'></li>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
 			</div>
@@ -129,6 +130,20 @@
 			</div>
 		</div>
 		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>7</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
 		
 	</div>
 </div>
@@ -142,16 +157,64 @@
 				
 				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Add project</span>
-						<span class='test-time'>Mar 8, 2021 12:43:14 PM</span>
+						<span class='test-name'>Add and delete environment</span>
+						<span class='test-time'>Mar 8, 2021 06:38:58 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Mar 8, 2021 12:43:14 PM</span>
-	<span class='label end-time'>Mar 8, 2021 12:43:14 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+	<span class='label start-time'>Mar 8, 2021 06:38:58 PM</span>
+	<span class='label end-time'>Mar 8, 2021 06:39:05 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 6s+543ms</span>
 </div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:38:59 PM</td>
+					<td class='step-details'>1. Log in<img data-featherlight='204121000.png' width='10%' src='204121000.png' data-src='204121000.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:39:00 PM</td>
+					<td class='step-details'>2. Select project on the top panel<img data-featherlight='220584000.png' width='10%' src='220584000.png' data-src='220584000.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:39:01 PM</td>
+					<td class='step-details'>3. Select Environment menu item<img data-featherlight='178377000.png' width='10%' src='178377000.png' data-src='178377000.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:39:01 PM</td>
+					<td class='step-details'>4. Press Add environment button<img data-featherlight='929058000.png' width='10%' src='929058000.png' data-src='929058000.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:39:03 PM</td>
+					<td class='step-details'>5, 6. Add new environment<img data-featherlight='352902000.png' width='10%' src='352902000.png' data-src='352902000.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:39:04 PM</td>
+					<td class='step-details'>7. Search for new environment on the list<img data-featherlight='283078000.png' width='10%' src='283078000.png' data-src='283078000.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:39:05 PM</td>
+					<td class='step-details'>8. Enter details page for the new environment<img data-featherlight='81471000.png' width='10%' src='81471000.png' data-src='81471000.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 					</div>
 				</li>
 			</ul>
@@ -195,25 +258,25 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>0</div>
+					<div class='panel-lead'>7</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Mar 8, 2021 12:42:37 PM</div>
+					<div class='panel-lead'>Mar 8, 2021 06:38:52 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Mar 8, 2021 12:43:14 PM</div>
+			 		<div class='panel-lead'>Mar 8, 2021 06:39:06 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 37s+522ms</div>
+					<div class='panel-lead'>0h 0m 14s+103ms</div>
 				</div>
 			</div>
 		</div>
@@ -234,7 +297,7 @@
 				skipParent: 0,
 				exceptionsParent: 0,
 				
-				passChild: 0,
+				passChild: 7,
 				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,

@@ -39,11 +39,11 @@ public class ProjectTest extends BaseTest{
         testReport.pass("2. Enter Administration panel", getScreenShot());
 
         //Step 3. Search for project using prefix
-        projectListPage.performSearchForProject(projectData.projectPrefix);
+        projectListPage.performSearch(projectData.projectPrefix);
         testReport.pass("3. Search for project using prefix", getScreenShot());
 
         //Check if project with this prefix already exists
-        if (projectListPage.isProjectFound()) {
+        if (projectListPage.isProjectFound(projectData.projectName)) {
             //Project already exists, check it's status. If the project is closed, skip the test.
             ProjectStatus status = projectListPage.getProjectStatus();
             if (status == ProjectStatus.CLOSED) {
@@ -61,13 +61,13 @@ public class ProjectTest extends BaseTest{
             //Step 5. Add new project
             projectListPage = addProjectPage
                     .performAddProject(projectData.projectName, projectData.projectPrefix);
-            Assert.assertTrue(projectListPage.isProjectFound());
+            Assert.assertTrue(projectListPage.isProjectFound(projectData.projectName));
             testReport.pass("5. Add new project", getScreenShot());
         }
 
         //Step 6. Enter Details page for the new project
         ProjectDetailsPage projectDetailsPage = projectListPage
-                .enterProjectDetails(projectData.projectName);
+                .showProjectDetails(projectData.projectName);
         Assert.assertTrue(projectDetailsPage.isCorrectPageLoaded());
         testReport.pass("6. Enter Details page for the new project", getScreenShot());
 

@@ -13,7 +13,7 @@ import java.util.List;
 
 public class SeleniumHelper {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public SeleniumHelper(WebDriver driver) {
         this.driver = driver;

@@ -9,26 +9,28 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.AddProjectPage;
+import pages.LoginPage;
 import pages.ProjectListPage;
 import pages.ProjectDetailsPage;
 import utils.JsonUtils;
 import utils.ProjectStatus;
-import utils.exceptions.NoSuchProjectException;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ProjectTest extends BaseTest{
 
-    private Logger log = Logger.getLogger(LoginTest.class);
+    private final Logger log = Logger.getLogger(LoginTest.class);
 
     @Test(dataProvider = "getData")
-    public void addProjectTest(ProjectBL projectData) throws IOException, NoSuchProjectException {
+    public void addProjectTest(ProjectBL projectData) throws IOException {
         testReport = reports.createTest("Add project");
         SoftAssert softAssert = new SoftAssert();
 
         //TODO: użyć TestListenera, żeby obsłużyć wszystkie statusy asercji
         //Step 1. Log in
+        LoginPage loginPage = new LoginPage(driver);
+        cockpitPage = loginPage.performLogin(validEmail, validPassword);
         Assert.assertTrue(cockpitPage.isCorrectPageLoaded());
         testReport.pass("1. Log in", getScreenShot());
 

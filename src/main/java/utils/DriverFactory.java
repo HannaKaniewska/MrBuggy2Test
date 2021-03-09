@@ -13,7 +13,7 @@ import java.io.File;
 
 public class DriverFactory {
     private static WebDriver driverInstance;
-    private static Logger log = Logger.getLogger(DriverFactory.class);
+    private static final Logger log = Logger.getLogger(DriverFactory.class);
 
     public static WebDriver getDriver(DriverType driverType) throws NoSuchDriverException {
         if (driverInstance == null) {

@@ -23,7 +23,7 @@ public class AddProjectPage extends TopPanel {
         PageFactory.initElements(driver, this);
         this.driver = driver;
         this.helper = new SeleniumHelper(driver);
-        log = Logger.getLogger(ProjectListPage.class);
+        log = Logger.getLogger(AddProjectPage.class);
         this.pageTitle = "Dodaj projekt";
     }
 

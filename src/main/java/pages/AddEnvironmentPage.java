@@ -24,7 +24,7 @@ public class AddEnvironmentPage extends TopPanel {
         PageFactory.initElements(driver, this);
         this.driver = driver;
         this.helper = new SeleniumHelper(driver);
-        log = Logger.getLogger(EnvironmentListPage.class);
+        log = Logger.getLogger(AddEnvironmentPage.class);
         this.pageTitle = "Dodaj środowisko";
     }
 

@@ -10,10 +10,6 @@ import partials.SearchPanel;
 import partials.TopPanel;
 import utils.ProjectStatus;
 import utils.SeleniumHelper;
-import utils.exceptions.NoSuchProjectException;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ProjectListPage extends TopPanel {
 
@@ -22,11 +18,9 @@ public class ProjectListPage extends TopPanel {
     private WebElement addProjectButton;
 
     //Results table
-    private By resultsTableLocator = By.xpath("//section[@id='content']//table");
-    private By projectStatusLocator = By.xpath("//td[@class='t_status']");
-    private By projectNameLocator = By.xpath("//section[@id='content']//table//td/a");
+    private final By projectStatusLocator = By.xpath("//td[@class='t_status']");
 
-    private SearchPanel searchPanel;
+    private final SearchPanel searchPanel;
 
 
     public ProjectListPage(WebDriver driver) {
@@ -44,7 +38,7 @@ public class ProjectListPage extends TopPanel {
 
 
     public boolean isProjectFound(String projectName) {
-        return(getProjectFromResultsTable(projectName) != null);
+        return(searchPanel.getItemFromResultsTable(projectName) != null);
     }
 
     public ProjectStatus getProjectStatus() {
@@ -64,23 +58,8 @@ public class ProjectListPage extends TopPanel {
         return new AddProjectPage(driver);
     }
 
-    private WebElement getProjectFromResultsTable(String projectName) {
-        List<WebElement> projectList = driver.findElements(projectNameLocator);
-        for (WebElement project : projectList) {
-            if (project.getText().equals(projectName)) {
-                return project;
-            }
-        }
-        return null;
-    }
-
-    public ProjectDetailsPage showProjectDetails(String expectedProjectName) throws NoSuchProjectException {
-        WebElement projectItem = getProjectFromResultsTable(expectedProjectName);
-        if (projectItem != null) {
-            projectItem.click();
-        } else {
-            throw new NoSuchProjectException();
-        }
+    public ProjectDetailsPage showProjectDetails(String projectName) {
+        searchPanel.showItemDetails(projectName);
         return new ProjectDetailsPage(driver);
     }
 }

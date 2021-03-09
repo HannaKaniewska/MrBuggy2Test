@@ -10,27 +10,27 @@ import partials.DialogBox;
 import partials.TopPanel;
 import utils.SeleniumHelper;
 
-public class EnvironmentDetailsPage extends TopPanel {
+public class ReleaseDetailsPage extends TopPanel {
 
-    @FindBy (xpath = "//a[@class='button_link j_delete_environment']")
+    @FindBy(xpath = "//a[@class='j_delete_release button_link']")
     private WebElement deleteButton;
 
-    private final By deleteDialogBoxLocator = By.id("j_popup_delete_environment");
+    private final By deleteReleaseMessageBoxLocator = By.id("j_popup_delete_release");
     private final DialogBox dialogBox;
 
-    public EnvironmentDetailsPage(WebDriver driver) {
+    public ReleaseDetailsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
         this.helper = new SeleniumHelper(driver);
-        log = Logger.getLogger(EnvironmentDetailsPage.class);
-        this.pageTitle = "Środowisko";
-        dialogBox = new DialogBox(driver, deleteDialogBoxLocator);
+        log = Logger.getLogger(ReleaseDetailsPage.class);
+        this.pageTitle = "Wydanie";
+        dialogBox = new DialogBox(driver, deleteReleaseMessageBoxLocator);
     }
 
-    public EnvironmentListPage performDeleteEnvironment() {
+    public ReleaseListPage performDeleteRelease() {
         deleteButton.click();
         dialogBox.confirmDeleteDialogMessage();
-        return new EnvironmentListPage(driver);
+        return new ReleaseListPage(driver);
     }
 
 }

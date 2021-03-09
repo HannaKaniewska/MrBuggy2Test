@@ -1,0 +1,19 @@
+{
+  "dataSet": [
+    {
+      "projectName": "HK Project 1",
+      "releaseName": "Wydanie 1",
+      "releaseStartDate": "2021-03-01",
+      "releaseEndDate": "2021-03-31",
+      "releaseDescription": "Opis wydania",
+      "phases": [
+        {
+          "phaseName": "Faza 1",
+          "phaseStartDate": "",
+          "phaseEndDate": "",
+          "phaseDescription": "Opis fazy"
+        }
+      ]
+    }
+  ]
+}

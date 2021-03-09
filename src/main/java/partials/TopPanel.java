@@ -10,7 +10,6 @@ import pages.CockpitPage;
 import pages.ProjectListPage;
 import utils.SeleniumHelper;
 
-import java.nio.channels.WritableByteChannel;
 import java.util.List;
 import java.util.Locale;
 
@@ -39,6 +38,11 @@ public class TopPanel {
 
     @FindBy (xpath = "//div[@class='chosen-search']//input")
     protected WebElement searchActiveProjectInput;
+
+    //Message Box
+    @FindBy(id = "j_info_box")
+    protected WebElement messageBox;
+
 
     protected SeleniumHelper helper;
     protected WebDriver driver;
@@ -90,6 +94,11 @@ public class TopPanel {
     public boolean isProjectSet(String projectName) {
         return (activeProjectLink.getText().toLowerCase(Locale.ROOT)
             .equals(projectName.toLowerCase(Locale.ROOT)));
+    }
+
+    public String getMessageTest() {
+        helper.waitForElementToBeDisplayed(messageBox);
+        return messageBox.getText();
     }
 
 }

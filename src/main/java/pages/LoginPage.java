@@ -24,9 +24,9 @@ public class LoginPage {
     private List<WebElement> loginFormErrorMessageList;
 
 
-    private SeleniumHelper helper;
-    private WebDriver driver;
-    private Logger log = Logger.getLogger(LoginPage.class);
+    private final SeleniumHelper helper;
+    private final WebDriver driver;
+    private final Logger log = Logger.getLogger(LoginPage.class);
 
 
     public LoginPage (WebDriver driver) {

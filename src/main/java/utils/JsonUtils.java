@@ -3,6 +3,7 @@ package utils;
 import businessLayer.EnvironmentBL;
 import businessLayer.LoginBL;
 import businessLayer.ProjectBL;
+import businessLayer.ReleaseBL;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -55,5 +56,20 @@ public abstract class JsonUtils {
         }
         return environmentData;
     }
+
+    public static Object[][] getReleasePhaseData() throws FileNotFoundException {
+        //read JSON file with release and phase data
+        JsonElement jsonData = new JsonParser().parse(new FileReader("src/test/resources/data/ReleasePhaseData.json"));
+        JsonElement dataSet = jsonData.getAsJsonObject().get("dataSet");
+        List<ReleaseBL> testData = new Gson().fromJson(dataSet, new TypeToken<List<ReleaseBL>>() {}
+                .getType());
+        Object[][] releaseData = new Object[testData.size()][1];
+        int index = 0;
+        for (Object[] each : releaseData) {
+            each[0] = testData.get(index++);
+        }
+        return releaseData;
+    }
+
 
 }

@@ -10,27 +10,27 @@ import partials.DialogBox;
 import partials.TopPanel;
 import utils.SeleniumHelper;
 
-public class EnvironmentDetailsPage extends TopPanel {
+public class PhaseDetailsPage extends TopPanel {
 
-    @FindBy (xpath = "//a[@class='button_link j_delete_environment']")
+    @FindBy(xpath = "//a[@class='j_delete_phase button_link']")
     private WebElement deleteButton;
 
-    private final By deleteDialogBoxLocator = By.id("j_popup_delete_environment");
+    private final By deleteDialogMessageBoxLocator = By.id("j_popup_delete_phase");
     private final DialogBox dialogBox;
 
-    public EnvironmentDetailsPage(WebDriver driver) {
+    public PhaseDetailsPage (WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
         this.helper = new SeleniumHelper(driver);
-        log = Logger.getLogger(EnvironmentDetailsPage.class);
-        this.pageTitle = "Środowisko";
-        dialogBox = new DialogBox(driver, deleteDialogBoxLocator);
+        log = Logger.getLogger(PhaseDetailsPage.class);
+        this.pageTitle = "Faza";
+        dialogBox = new DialogBox(driver, deleteDialogMessageBoxLocator);
     }
 
-    public EnvironmentListPage performDeleteEnvironment() {
+    public PhaseListPage performDeletePhase() {
         deleteButton.click();
         dialogBox.confirmDeleteDialogMessage();
-        return new EnvironmentListPage(driver);
+        return new PhaseListPage(driver);
     }
 
 }

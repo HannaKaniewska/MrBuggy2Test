@@ -19,20 +19,20 @@ public class ProjectDetailsPage extends TopPanel {
     @FindBy(xpath = "//form[@name='j_editUsersForm']//tbody")
     private WebElement rolesTable;
 
-    private By rowsLocator = By.tagName("tr");
-    private By roleNameCellLocator = By.xpath("td[@class='t_status']");
-    private By searchUserInputLocator = By.id("token-input-users");
-    private By userCellLocator = By.tagName("span");
-    private By userDropDownLocator = By.xpath("//div[@class='token-input-dropdown-facebook']/ul");
-    private By addUserButtonLocator = By.className("j_editUsers");
-    private By saveButtonLocator = By.className("j_saveUsers");
+    private final By rowsLocator = By.tagName("tr");
+    private final By roleNameCellLocator = By.xpath("td[@class='t_status']");
+    private final By searchUserInputLocator = By.id("token-input-users");
+    private final By userCellLocator = By.tagName("span");
+    private final By userDropDownLocator = By.xpath("//div[@class='token-input-dropdown-facebook']/ul");
+    private final By addUserButtonLocator = By.className("j_editUsers");
+    private final By saveButtonLocator = By.className("j_saveUsers");
 
 
     public ProjectDetailsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
         this.helper = new SeleniumHelper(driver);
-        log = Logger.getLogger(ProjectListPage.class);
+        log = Logger.getLogger(ProjectDetailsPage.class);
         this.pageTitle = "Właściwości projektu";
     }
 

@@ -13,7 +13,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import pages.CockpitPage;
-import pages.LoginPage;
 import utils.DriverFactory;
 import utils.DriverType;
 import utils.SeleniumHelper;
@@ -27,11 +26,10 @@ public abstract class BaseTest {
     protected ExtentReports reports;
     protected ExtentTest testReport;
     protected CockpitPage cockpitPage;
-    //TODO: przenieść te stałe do pliku JSON
-    protected String loginUrl = "http://demo.mrbuggy2.testarena.pl/zaloguj";
-    protected String validEmail = "admin@tc2014.pl";
-    protected String validPassword = "12qwAS";
-    private Logger log = Logger.getLogger(BaseTest.class);
+    protected final String loginUrl = "http://demo.mrbuggy2.testarena.pl/zaloguj";
+    protected final String validEmail = "admin@tc2014.pl";
+    protected final String validPassword = "12qwAS";
+    private final Logger log = Logger.getLogger(BaseTest.class);
 
 
 
@@ -49,8 +47,6 @@ public abstract class BaseTest {
         log.debug("Before method");
         driver = DriverFactory.getDriver(DriverType.CHROM);
         driver.get(loginUrl);
-        LoginPage loginPage = new LoginPage(driver);
-        cockpitPage = loginPage.performLogin(validEmail, validPassword);
     }
 
     @AfterMethod

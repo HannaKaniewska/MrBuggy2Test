@@ -1,15 +1,11 @@
 package tests;
 
 import businessLayer.LoginBL;
-import utils.exceptions.NoSuchDriverException;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-import utils.DriverFactory;
-import utils.DriverType;
 import utils.JsonUtils;
 
 import java.io.FileNotFoundException;
@@ -17,26 +13,15 @@ import java.io.IOException;
 
 public class LoginTest extends BaseTest{
 
-    private Logger log = Logger.getLogger(LoginTest.class);
-    private LoginPage loginPage;
+    private final Logger log = Logger.getLogger(LoginTest.class);
 
-
-    @BeforeMethod @Override
-    public void setUp() throws NoSuchDriverException {
-        //Overrides setUp() method in BaseTest, to exclude login operation
-        //Login is performed separately in test methods in this class
-        //Here only initialize driver and open the login page
-        log.debug("Before method");
-        driver = DriverFactory.getDriver(DriverType.CHROM);
-        driver.get(loginUrl);
-        loginPage = new LoginPage(driver);
-    }
 
     @Test
     public void valid_login_test () throws IOException {
         testReport = reports.createTest("Valid login test");
         testReport.info("Login email: " + validEmail + ", password: " + validPassword);
 
+        LoginPage loginPage = new LoginPage(driver);
         cockpitPage = loginPage.performLogin(validEmail, validPassword);
         //Check if Cockpit page is loaded
         try {
@@ -53,6 +38,7 @@ public class LoginTest extends BaseTest{
         testReport = reports.createTest(loginData.testCase);
         testReport.info("Login email: " + loginData.email + ", password: " + loginData.password);
 
+        LoginPage loginPage = new LoginPage(driver);
         loginPage = loginPage.performInvalidLogin(loginData.email, loginData.password);
         //Check if the error messages are displayed
         try {

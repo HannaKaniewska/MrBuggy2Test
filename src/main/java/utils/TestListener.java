@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class TestListener implements ITestListener {
 
-    Logger log = Logger.getLogger(TestListener.class);
+    final Logger log = Logger.getLogger(TestListener.class);
 
     public void onTestStart(ITestResult result) {
         log.debug("On test start");

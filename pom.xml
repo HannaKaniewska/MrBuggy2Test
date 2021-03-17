@@ -13,18 +13,6 @@
         <maven.compiler.target>15</maven.compiler.target>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>Geomajas</id>
-            <name>Geomajas repository</name>
-            <url>http://maven.geomajas.org/</url>
-        </repository>
-        <repository>
-            <id>maven2</id>
-            <url>http://repo1.maven.org/maven2</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
@@ -52,6 +40,11 @@
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
         <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>3.1.5</version>
+        </dependency>
+        <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
@@ -61,12 +54,6 @@
             <artifactId>testng</artifactId>
             <version>7.4.0</version>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.aventstack</groupId>
-            <artifactId>extentreports</artifactId>
-            <version>5.0.6</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 

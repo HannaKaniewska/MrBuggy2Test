@@ -43,6 +43,23 @@ public class SearchPanel {
         }
         return null;
     }
+    public WebElement getFirstItemFromResultsTable() {
+        WebElement resultsTable = driver.findElement(resultsTableLocator);
+        List<WebElement> resultsRows = resultsTable.findElements(By.xpath("//tbody/tr"));
+        return resultsRows.get(0).findElement(By.xpath("//td/a"));
+    }
+
+    public WebElement getRowFromResultsTable(String name) {
+        WebElement resultsTable = driver.findElement(resultsTableLocator);
+        List<WebElement> resultsRows = resultsTable.findElements(By.xpath("//tbody/tr"));
+        for (WebElement row : resultsRows) {
+            WebElement item = row.findElement(By.xpath("//td/a"));
+            if (item.getText().equals(name)) {
+                return row;
+            }
+        }
+        return null;
+    }
 
     public void showItemDetails(String itemName) {
         WebElement item = getItemFromResultsTable(itemName);

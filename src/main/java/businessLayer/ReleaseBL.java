@@ -3,7 +3,7 @@ package businessLayer;
 import java.util.List;
 
 public class ReleaseBL {
-    public String projectName;
+    public String projectPrefix;
     public String releaseName;
     public String releaseStartDate;
     public String releaseEndDate;
@@ -13,7 +13,7 @@ public class ReleaseBL {
     @Override
     public String toString() {
         return "ProjectData{" +
-                "projectName='" + projectName + '\'' +
+                "projectPrefix='" + projectPrefix + '\'' +
                 ", releaseName='" + releaseName + '\'' +
                 ", releaseStartDate='" + releaseStartDate + '\'' +
                 ", releaseEndDate='" + releaseEndDate + '\'' +

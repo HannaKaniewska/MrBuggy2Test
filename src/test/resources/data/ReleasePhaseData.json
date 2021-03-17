@@ -1,7 +1,7 @@
 {
   "dataSet": [
     {
-      "projectName": "HK Project 1",
+      "projectPrefix": "HKPRO1",
       "releaseName": "Wydanie 1",
       "releaseStartDate": "2021-03-01",
       "releaseEndDate": "2021-03-31",

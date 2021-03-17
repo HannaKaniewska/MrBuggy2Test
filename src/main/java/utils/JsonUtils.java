@@ -1,9 +1,6 @@
 package utils;
 
-import businessLayer.EnvironmentBL;
-import businessLayer.LoginBL;
-import businessLayer.ProjectBL;
-import businessLayer.ReleaseBL;
+import businessLayer.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -71,5 +68,45 @@ public abstract class JsonUtils {
         return releaseData;
     }
 
+    public static Object[][] getExplorationTaskData() throws FileNotFoundException {
+        //read JSON file with exploration task data
+        JsonElement jsonData = new JsonParser().parse(new FileReader("src/test/resources/data/ExplorationTaskData.json"));
+        JsonElement dataSet = jsonData.getAsJsonObject().get("dataSet");
+        List<ExplorationTaskBL> testData = new Gson().fromJson(dataSet, new TypeToken<List<ExplorationTaskBL>>() {}
+                .getType());
+        Object[][] taskData = new Object[testData.size()][1];
+        int index = 0;
+        for (Object[] each : taskData) {
+            each[0] = testData.get(index++);
+        }
+        return taskData;
+    }
 
+    public static Object[][] getTestCaseTaskData() throws FileNotFoundException {
+        //read JSON file with test case task data
+        JsonElement jsonData = new JsonParser().parse(new FileReader("src/test/resources/data/TestCaseTask.json"));
+        JsonElement dataSet = jsonData.getAsJsonObject().get("dataSet");
+        List<TestCaseTaskBL> testData = new Gson().fromJson(dataSet, new TypeToken<List<TestCaseTaskBL>>() {}
+                .getType());
+        Object[][] taskData = new Object[testData.size()][1];
+        int index = 0;
+        for (Object[] each : taskData) {
+            each[0] = testData.get(index++);
+        }
+        return taskData;
+    }
+
+    public static Object[][] getOtherTaskData() throws FileNotFoundException {
+        //read JSON file with other task data
+        JsonElement jsonData = new JsonParser().parse(new FileReader("src/test/resources/data/OtherTaskData.json"));
+        JsonElement dataSet = jsonData.getAsJsonObject().get("dataSet");
+        List<OtherTaskBL> testData = new Gson().fromJson(dataSet, new TypeToken<List<OtherTaskBL>>() {}
+                .getType());
+        Object[][] taskData = new Object[testData.size()][1];
+        int index = 0;
+        for (Object[] each : taskData) {
+            each[0] = testData.get(index++);
+        }
+        return taskData;
+    }
 }

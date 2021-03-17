@@ -32,8 +32,9 @@ public class ProjectListPage extends TopPanel {
         this.searchPanel = new SearchPanel(driver);
     }
 
-    public void performSearch(String searchText) {
+    public ProjectListPage performSearch(String searchText) {
         searchPanel.performSearch(searchText);
+        return this;
     }
 
 
@@ -61,5 +62,10 @@ public class ProjectListPage extends TopPanel {
     public ProjectDetailsPage showProjectDetails(String projectName) {
         searchPanel.showItemDetails(projectName);
         return new ProjectDetailsPage(driver);
+    }
+
+    public String getFirstProjectName() {
+        WebElement firstItem = searchPanel.getFirstItemFromResultsTable();
+        return firstItem.getText();
     }
 }

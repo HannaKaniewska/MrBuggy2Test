@@ -4,11 +4,14 @@ import businessLayer.PhaseBL;
 import businessLayer.ReleaseBL;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.*;
 import utils.JsonUtils;
+import utils.ProjectStatus;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -20,6 +23,7 @@ public class ReleasePhaseTest extends BaseTest {
     public void addDeleteReleasePhase(ReleaseBL testData) throws IOException {
         testReport = reports.createTest("Add and delete release and phase");
         SoftAssert softAssert = new SoftAssert();
+        String projectName;
 
         //Step 1. Log in
         LoginPage loginPage = new LoginPage(driver);
@@ -27,9 +31,23 @@ public class ReleasePhaseTest extends BaseTest {
         Assert.assertTrue(cockpitPage.isCorrectPageLoaded());
         testReport.pass("1. Log in", getScreenShot());
 
+        //Prepare project for testing:
+        //check if project exists and is active, if not -> skip test
+        ProjectListPage projectListPage = cockpitPage.enterAdminPanel()
+                .performSearch(testData.projectPrefix);
+        ProjectStatus projectStatus = projectListPage.getProjectStatus();
+        if (projectStatus != ProjectStatus.ACTIVE) {
+            testReport.skip("Project is not active", getScreenShot());
+            throw new SkipException("Project is not active");
+        }
+        else {
+            projectName = projectListPage.getFirstProjectName();
+        }
+        cockpitPage = projectListPage.leaveAdminPanel();
+
         //Step 2. Select project on the top panel
-        cockpitPage.setActiveProject(testData.projectName);
-        Assert.assertTrue(cockpitPage.isProjectSet(testData.projectName));
+        cockpitPage.setActiveProject(projectName);
+        Assert.assertTrue(cockpitPage.isProjectSet(projectName));
         testReport.pass("2. Select project on the top panel", getScreenShot());
 
         //Step 3. Select Release menu item

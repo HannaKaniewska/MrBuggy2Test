@@ -7,15 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import partials.DialogBox;
-import partials.TopPanel;
+import partials.BasePage;
 import utils.SeleniumHelper;
 
-public class EnvironmentDetailsPage extends TopPanel {
+public class EnvironmentDetailsPage extends BasePage {
 
     @FindBy (xpath = "//a[@class='button_link j_delete_environment']")
     private WebElement deleteButton;
 
-    private final By deleteDialogBoxLocator = By.id("j_popup_delete_environment");
     private final DialogBox dialogBox;
 
     public EnvironmentDetailsPage(WebDriver driver) {
@@ -24,6 +23,7 @@ public class EnvironmentDetailsPage extends TopPanel {
         this.helper = new SeleniumHelper(driver);
         log = Logger.getLogger(EnvironmentDetailsPage.class);
         this.pageTitle = "Środowisko";
+        By deleteDialogBoxLocator = By.id("j_popup_delete_environment");
         dialogBox = new DialogBox(driver, deleteDialogBoxLocator);
     }
 

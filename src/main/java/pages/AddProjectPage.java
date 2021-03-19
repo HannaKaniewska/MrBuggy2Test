@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import partials.TopPanel;
+import partials.BasePage;
 import utils.SeleniumHelper;
 
-public class AddProjectPage extends TopPanel {
+public class AddProjectPage extends BasePage {
 
     @FindBy(id = "name")
     private WebElement nameInput;

@@ -3,7 +3,10 @@
     {
       "projectPrefix": "HKPRO1",
       "taskName": "Zadanie inne 1",
-      "taskDescription": "Opis zadania"
+      "taskDescription": "Opis zadania",
+      "taskForwardToExecuteData": [
+        {}
+      ]
     }
   ]
 }

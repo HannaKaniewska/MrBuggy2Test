@@ -7,11 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import partials.SearchPanel;
-import partials.TopPanel;
+import partials.BasePage;
 import utils.ProjectStatus;
 import utils.SeleniumHelper;
 
-public class ProjectListPage extends TopPanel {
+public class ProjectListPage extends BasePage {
 
     //Buttons panel
     @FindBy (xpath = "//a[text()='Dodaj projekt']")
@@ -40,6 +40,10 @@ public class ProjectListPage extends TopPanel {
 
     public boolean isProjectFound(String projectName) {
         return(searchPanel.getItemFromResultsTable(projectName) != null);
+    }
+
+    public boolean isProjectFound() {
+        return (searchPanel.getFirstItemFromResultsTable() != null);
     }
 
     public ProjectStatus getProjectStatus() {

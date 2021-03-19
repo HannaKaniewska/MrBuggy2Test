@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import partials.SearchPanel;
-import partials.TopPanel;
+import partials.BasePage;
 import utils.SeleniumHelper;
 
-public class ReleaseListPage extends TopPanel {
+public class ReleaseListPage extends BasePage {
 
     //Buttons panel
     @FindBy(xpath = "//a[text()='Dodaj wydanie']")

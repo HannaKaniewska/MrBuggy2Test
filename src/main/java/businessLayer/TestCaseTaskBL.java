@@ -1,11 +1,14 @@
 package businessLayer;
 
+import java.util.List;
+
 public class TestCaseTaskBL {
     public String projectPrefix;
     public String taskName;
     public String taskDescription;
     public String taskPresuppositions;
     public String taskResult;
+    public List<TaskForwardToExecuteBL> taskForwardToExecuteData;
 
     @Override
     public String toString() {
@@ -14,7 +17,8 @@ public class TestCaseTaskBL {
                 "taskName='" + taskName + '\'' +
                 "taskDescription='" + taskDescription + '\'' +
                 "taskPresuppositions='" + taskPresuppositions + '\'' +
-                ", taskResult='" + taskResult +
+                ", taskResult='" + taskResult + '\'' +
+                ", taskForwardToExecuteData='" + taskForwardToExecuteData +
                 '}';
     }
 

@@ -7,15 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import partials.DialogBox;
-import partials.TopPanel;
+import partials.BasePage;
 import utils.SeleniumHelper;
 
-public class ReleaseDetailsPage extends TopPanel {
+public class ReleaseDetailsPage extends BasePage {
 
     @FindBy(xpath = "//a[@class='j_delete_release button_link']")
     private WebElement deleteButton;
 
-    private final By deleteReleaseMessageBoxLocator = By.id("j_popup_delete_release");
     private final DialogBox dialogBox;
 
     public ReleaseDetailsPage(WebDriver driver) {
@@ -24,6 +23,7 @@ public class ReleaseDetailsPage extends TopPanel {
         this.helper = new SeleniumHelper(driver);
         log = Logger.getLogger(ReleaseDetailsPage.class);
         this.pageTitle = "Wydanie";
+        By deleteReleaseMessageBoxLocator = By.id("j_popup_delete_release");
         dialogBox = new DialogBox(driver, deleteReleaseMessageBoxLocator);
     }
 

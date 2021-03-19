@@ -5,7 +5,10 @@
       "taskName": "Zadanie przypadek testowy 1",
       "taskDescription": "Opis przypadku testowego",
       "taskPresuppositions": "",
-      "taskResult": "Rezultat zadania"
+      "taskResult": "Rezultat zadania",
+      "taskForwardToExecuteData": [
+        {}
+      ]
     }
   ]
 }

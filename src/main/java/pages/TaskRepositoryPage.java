@@ -8,10 +8,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import partials.DialogBox;
 import partials.SearchPanel;
-import partials.TopPanel;
+import partials.BasePage;
 import utils.SeleniumHelper;
 
-public class TaskRepositoryPage extends TopPanel {
+public class TaskRepositoryPage extends BasePage {
 
     //Buttons panel
     @FindBy (xpath = "//a[@class='open button_link']")
@@ -26,7 +26,11 @@ public class TaskRepositoryPage extends TopPanel {
     @FindBy (xpath = "//a[text()='Inne']")
     private WebElement addOtherTaskButton;
 
-    private final By deleteTaskMessageBoxLocator = By.id("j_popup_delete_task");
+    //Action column
+    private final By actionIconLocator = By.id("action_icon");
+    private final By actionDeleteLocator = By.className("j_delete_task");
+    private final By forwardToExecuteLocator = By.xpath("//a[text()='Przekaż do wykonania']");
+
     private final SearchPanel searchPanel;
     private final DialogBox dialogBox;
 
@@ -37,8 +41,9 @@ public class TaskRepositoryPage extends TopPanel {
         log = Logger.getLogger(TaskRepositoryPage.class);
         this.pageTitle = "Baza zadań";
         this.searchPanel = new SearchPanel(driver);
+        //Message Box
+        By deleteTaskMessageBoxLocator = By.id("j_popup_delete_task");
         dialogBox = new DialogBox(driver, deleteTaskMessageBoxLocator);
-
     }
 
     private void pressAddTaskButton() {
@@ -72,13 +77,26 @@ public class TaskRepositoryPage extends TopPanel {
         return (searchPanel.getItemFromResultsTable(taskName) != null);
     }
 
-    public void performDeleteTask(String taskName) {
+    private WebElement clickActionButton(String taskName) {
         WebElement row = searchPanel.getRowFromResultsTable(taskName);
-        WebElement actionButton = row.findElement(By.id("action_icon"));
+        WebElement actionButton = row.findElement(actionIconLocator);
         actionButton.click();
-        WebElement deleteOption = row.findElement(By.className("j_delete_task"));
+        return row;
+    }
+
+    public void performDeleteTask(String taskName) {
+        WebElement row = clickActionButton(taskName);
+        WebElement deleteOption = row.findElement(actionDeleteLocator);
         helper.waitForElementToBeDisplayed(deleteOption);
         deleteOption.click();
         dialogBox.confirmDeleteDialogMessage();
+    }
+
+    public TaskForwardToExecutePage performForwardToExecuteTask(String taskName) {
+        WebElement row = clickActionButton(taskName);
+        WebElement forwardToExecuteOption = row.findElement(forwardToExecuteLocator);
+        helper.waitForElementToBeDisplayed(forwardToExecuteOption);
+        forwardToExecuteOption.click();
+        return new TaskForwardToExecutePage(driver);
     }
 }

@@ -7,15 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import partials.DialogBox;
-import partials.TopPanel;
+import partials.BasePage;
 import utils.SeleniumHelper;
 
-public class PhaseDetailsPage extends TopPanel {
+public class PhaseDetailsPage extends BasePage {
 
     @FindBy(xpath = "//a[@class='j_delete_phase button_link']")
     private WebElement deleteButton;
 
-    private final By deleteDialogMessageBoxLocator = By.id("j_popup_delete_phase");
     private final DialogBox dialogBox;
 
     public PhaseDetailsPage (WebDriver driver) {
@@ -24,6 +23,7 @@ public class PhaseDetailsPage extends TopPanel {
         this.helper = new SeleniumHelper(driver);
         log = Logger.getLogger(PhaseDetailsPage.class);
         this.pageTitle = "Faza";
+        By deleteDialogMessageBoxLocator = By.id("j_popup_delete_phase");
         dialogBox = new DialogBox(driver, deleteDialogMessageBoxLocator);
     }
 

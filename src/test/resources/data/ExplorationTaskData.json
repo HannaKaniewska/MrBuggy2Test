@@ -4,7 +4,19 @@
       "projectPrefix": "HKPRO1",
       "taskName": "Zadanie eksploracja 1",
       "taskDuration": "60",
-      "testCard": "Karta testu 1"
+      "testCard": "Karta testu 1",
+      "taskForwardToExecuteData": [
+        {
+          "releaseName": "",
+          "phaseName": "",
+          "environmentName": "",
+          "priority": "Mało ważny",
+          "dueDate": "2021-04-30 00:00",
+          "assigneeName": "",
+          "assignToMe": "1",
+          "comment": "Przekazanie zadania do wykonania"
+        }
+      ]
     }
   ]
 }

@@ -7,13 +7,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import partials.TopPanel;
+import partials.BasePage;
 import utils.SeleniumHelper;
 
 import java.util.List;
 import java.util.Locale;
 
-public class ProjectDetailsPage extends TopPanel {
+public class ProjectDetailsPage extends BasePage {
 
     //Roles in the project
     @FindBy(xpath = "//form[@name='j_editUsersForm']//tbody")

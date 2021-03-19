@@ -13,7 +13,7 @@ import utils.SeleniumHelper;
 import java.util.List;
 import java.util.Locale;
 
-public class TopPanel {
+public class BasePage {
 
     //Top panel
     @FindBy (xpath = "//div[@class='header_admin']//a[text()='Administracja']")
@@ -82,7 +82,7 @@ public class TopPanel {
         }
     }
 
-    public TopPanel setActiveProject(String projectName) {
+    public BasePage setActiveProject(String projectName) {
         activeProjectLink.click();
         searchActiveProjectInput.click();
         searchActiveProjectInput.sendKeys(projectName);

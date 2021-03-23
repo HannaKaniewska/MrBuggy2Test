@@ -44,18 +44,23 @@ public class SearchPanel {
         return null;
     }
     public WebElement getFirstItemFromResultsTable() {
-        WebElement resultsTable = driver.findElement(resultsTableLocator);
-        List<WebElement> resultsRows = resultsTable.findElements(By.xpath("//tbody/tr"));
+        List<WebElement> resultsTableList = driver.findElements(resultsTableLocator);
+        if (resultsTableList.size() == 0) {
+            return null;
+        }
+        List<WebElement> resultsRows = resultsTableList.get(0).findElements(By.xpath("//tbody/tr"));
         return resultsRows.get(0).findElement(By.xpath("//td/a"));
     }
 
     public WebElement getRowFromResultsTable(String name) {
-        WebElement resultsTable = driver.findElement(resultsTableLocator);
-        List<WebElement> resultsRows = resultsTable.findElements(By.xpath("//tbody/tr"));
-        for (WebElement row : resultsRows) {
-            WebElement item = row.findElement(By.xpath("//td/a"));
-            if (item.getText().equals(name)) {
-                return row;
+        List<WebElement> resultsTableList = driver.findElements(resultsTableLocator);
+        if (resultsTableList.size() > 0) {
+            List<WebElement> resultsRows = resultsTableList.get(0).findElements(By.xpath("//tbody/tr"));
+            for (WebElement row : resultsRows) {
+                WebElement item = row.findElement(By.xpath("//td/a"));
+                if (item.getText().equals(name)) {
+                    return row;
+                }
             }
         }
         return null;

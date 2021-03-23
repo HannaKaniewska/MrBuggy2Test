@@ -17,7 +17,6 @@ import utils.JsonUtils;
 import utils.ProjectStatus;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 @Listeners(ExtentTestNGTestListener.class)
 public class ProjectTest extends BaseTest{
@@ -29,7 +28,7 @@ public class ProjectTest extends BaseTest{
 
         //Step 1. Log in
         LoginPage loginPage = new LoginPage(driver);
-        cockpitPage = loginPage.performLogin(validEmail, validPassword);
+        cockpitPage = loginPage.performLogin(loginEmail, loginPassword);
         Assert.assertTrue(cockpitPage.isCorrectPageLoaded());
 
         //Step 2. Enter Administration panel
@@ -37,7 +36,7 @@ public class ProjectTest extends BaseTest{
         Assert.assertTrue(projectListPage.isCorrectPageLoaded());
         softAssert.assertTrue(projectListPage.isMenuItemActive("Projekty"));
 
-        //Step 3. Search for project using prefix
+        //Step 3. Search for the project using prefix
         projectListPage.performSearch(projectData.projectPrefix);
 
         //Check if project with this prefix already exists
@@ -47,6 +46,7 @@ public class ProjectTest extends BaseTest{
             if (status == ProjectStatus.CLOSED) {
                 throw new SkipException("Project is closed");
             }
+            //Get project name to use it for choosing active project on the top panel
             projectName = projectListPage.getFirstProjectName();
         }
         else {

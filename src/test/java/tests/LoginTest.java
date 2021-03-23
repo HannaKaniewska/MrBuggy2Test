@@ -10,7 +10,6 @@ import utils.ExtentTestNGTestListener;
 import utils.JsonUtils;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 @Listeners(ExtentTestNGTestListener.class)
 public class LoginTest extends BaseTest{
@@ -20,7 +19,7 @@ public class LoginTest extends BaseTest{
     public void valid_login_test () {
 
         LoginPage loginPage = new LoginPage(driver);
-        cockpitPage = loginPage.performLogin(validEmail, validPassword);
+        cockpitPage = loginPage.performLogin(loginEmail, loginPassword);
         //Check if Cockpit page is loaded
         Assert.assertTrue(cockpitPage.isCorrectPageLoaded());
     }

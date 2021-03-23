@@ -1,0 +1,6 @@
+2021-03-22 15:31:46,201 [main] DEBUG utils.ExtentTestNGTestListener - On start
+2021-03-22 15:31:51,525 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.TaskTest - forwardToExecuteExplorationTask
+2021-03-22 15:31:51,667 [main] INFO  pages.LoginPage - Setting e-mail
+2021-03-22 15:31:51,999 [main] INFO  pages.LoginPage - Setting password
+2021-03-22 15:31:52,915 [main] INFO  pages.LoginPage - Login action performed
+2021-03-22 15:32:04,523 [main] DEBUG utils.ExtentTestNGTestListener - On finish

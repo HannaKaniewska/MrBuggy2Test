@@ -1,58 +1,30 @@
-2021-03-19 14:33:40,345 [main] DEBUG utils.ExtentTestNGTestListener - On start
-2021-03-19 14:33:45,162 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.ReleasePhaseTest - addDeleteReleasePhase
-2021-03-19 14:33:45,275 [main] INFO  pages.LoginPage - Setting e-mail
-2021-03-19 14:33:45,590 [main] INFO  pages.LoginPage - Setting password
-2021-03-19 14:33:46,485 [main] INFO  pages.LoginPage - Login action performed
-2021-03-19 14:34:04,189 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.EnvironmentTest - addDeleteEnvironmentTest
-2021-03-19 14:34:04,191 [main] INFO  pages.LoginPage - Setting e-mail
-2021-03-19 14:34:04,437 [main] INFO  pages.LoginPage - Setting password
-2021-03-19 14:34:05,098 [main] INFO  pages.LoginPage - Login action performed
-2021-03-19 14:34:16,232 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.LoginTest - invalid_login_test
-2021-03-19 14:34:16,234 [main] INFO  pages.LoginPage - Setting e-mail
-2021-03-19 14:34:16,579 [main] INFO  pages.LoginPage - Setting password
-2021-03-19 14:34:17,141 [main] INFO  pages.LoginPage - Invalid login action performed
-2021-03-19 14:34:20,475 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.LoginTest - invalid_login_test
-2021-03-19 14:34:20,477 [main] INFO  pages.LoginPage - Setting e-mail
-2021-03-19 14:34:20,728 [main] INFO  pages.LoginPage - Setting password
-2021-03-19 14:34:21,638 [main] INFO  pages.LoginPage - Invalid login action performed
-2021-03-19 14:34:27,509 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.LoginTest - invalid_login_test
-2021-03-19 14:34:27,510 [main] INFO  pages.LoginPage - Setting e-mail
-2021-03-19 14:34:27,750 [main] INFO  pages.LoginPage - Setting password
-2021-03-19 14:34:28,368 [main] INFO  pages.LoginPage - Invalid login action performed
-2021-03-19 14:34:31,654 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.LoginTest - invalid_login_test
-2021-03-19 14:34:31,655 [main] INFO  pages.LoginPage - Setting e-mail
-2021-03-19 14:34:31,949 [main] INFO  pages.LoginPage - Setting password
-2021-03-19 14:34:32,426 [main] INFO  pages.LoginPage - Invalid login action performed
-2021-03-19 14:34:35,815 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.LoginTest - invalid_login_test
-2021-03-19 14:34:35,816 [main] INFO  pages.LoginPage - Setting e-mail
-2021-03-19 14:34:36,047 [main] INFO  pages.LoginPage - Setting password
-2021-03-19 14:34:37,136 [main] INFO  pages.LoginPage - Invalid login action performed
-2021-03-19 14:34:40,386 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.LoginTest - invalid_login_test
-2021-03-19 14:34:40,387 [main] INFO  pages.LoginPage - Setting e-mail
-2021-03-19 14:34:40,644 [main] INFO  pages.LoginPage - Setting password
-2021-03-19 14:34:41,240 [main] INFO  pages.LoginPage - Invalid login action performed
-2021-03-19 14:34:44,487 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.LoginTest - valid_login_test
-2021-03-19 14:34:44,488 [main] INFO  pages.LoginPage - Setting e-mail
-2021-03-19 14:34:44,709 [main] INFO  pages.LoginPage - Setting password
-2021-03-19 14:34:45,649 [main] INFO  pages.LoginPage - Login action performed
-2021-03-19 14:34:48,836 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.TaskTest - addDeleteExplorationTask
-2021-03-19 14:34:48,880 [main] INFO  pages.LoginPage - Setting e-mail
-2021-03-19 14:34:49,212 [main] INFO  pages.LoginPage - Setting password
-2021-03-19 14:34:49,878 [main] INFO  pages.LoginPage - Login action performed
-2021-03-19 14:34:59,323 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.TaskTest - addDeleteOtherTask
-2021-03-19 14:34:59,324 [main] INFO  pages.LoginPage - Setting e-mail
-2021-03-19 14:34:59,543 [main] INFO  pages.LoginPage - Setting password
-2021-03-19 14:35:00,181 [main] INFO  pages.LoginPage - Login action performed
-2021-03-19 14:35:08,611 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.TaskTest - addDeleteTestCaseTask
-2021-03-19 14:35:08,613 [main] INFO  pages.LoginPage - Setting e-mail
-2021-03-19 14:35:08,828 [main] INFO  pages.LoginPage - Setting password
-2021-03-19 14:35:09,829 [main] INFO  pages.LoginPage - Login action performed
-2021-03-19 14:35:18,719 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.TaskTest - forwardToExecuteExplorationTask
-2021-03-19 14:35:18,720 [main] INFO  pages.LoginPage - Setting e-mail
-2021-03-19 14:35:18,951 [main] INFO  pages.LoginPage - Setting password
-2021-03-19 14:35:19,635 [main] INFO  pages.LoginPage - Login action performed
-2021-03-19 14:35:33,839 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.ProjectTest - addProjectTest
-2021-03-19 14:35:33,843 [main] INFO  pages.LoginPage - Setting e-mail
-2021-03-19 14:35:34,041 [main] INFO  pages.LoginPage - Setting password
-2021-03-19 14:35:34,698 [main] INFO  pages.LoginPage - Login action performed
-2021-03-19 14:35:38,156 [main] DEBUG utils.ExtentTestNGTestListener - On finish
+2021-03-22 15:45:06,251 [main] DEBUG utils.ExtentTestNGTestListener - On start
+2021-03-22 15:45:11,812 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.LoginTest - invalid_login_test
+2021-03-22 15:45:11,896 [main] INFO  pages.LoginPage - Setting e-mail
+2021-03-22 15:45:12,179 [main] INFO  pages.LoginPage - Setting password
+2021-03-22 15:45:12,769 [main] INFO  pages.LoginPage - Invalid login action performed
+2021-03-22 15:45:16,608 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.LoginTest - invalid_login_test
+2021-03-22 15:45:16,609 [main] INFO  pages.LoginPage - Setting e-mail
+2021-03-22 15:45:16,949 [main] INFO  pages.LoginPage - Setting password
+2021-03-22 15:45:17,476 [main] INFO  pages.LoginPage - Invalid login action performed
+2021-03-22 15:45:23,371 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.LoginTest - invalid_login_test
+2021-03-22 15:45:23,372 [main] INFO  pages.LoginPage - Setting e-mail
+2021-03-22 15:45:23,597 [main] INFO  pages.LoginPage - Setting password
+2021-03-22 15:45:24,148 [main] INFO  pages.LoginPage - Invalid login action performed
+2021-03-22 15:45:28,524 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.LoginTest - invalid_login_test
+2021-03-22 15:45:28,526 [main] INFO  pages.LoginPage - Setting e-mail
+2021-03-22 15:45:28,765 [main] INFO  pages.LoginPage - Setting password
+2021-03-22 15:45:29,316 [main] INFO  pages.LoginPage - Invalid login action performed
+2021-03-22 15:45:32,815 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.LoginTest - invalid_login_test
+2021-03-22 15:45:32,817 [main] INFO  pages.LoginPage - Setting e-mail
+2021-03-22 15:45:33,181 [main] INFO  pages.LoginPage - Setting password
+2021-03-22 15:45:33,687 [main] INFO  pages.LoginPage - Invalid login action performed
+2021-03-22 15:45:37,360 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.LoginTest - invalid_login_test
+2021-03-22 15:45:37,362 [main] INFO  pages.LoginPage - Setting e-mail
+2021-03-22 15:45:37,931 [main] INFO  pages.LoginPage - Setting password
+2021-03-22 15:45:38,604 [main] INFO  pages.LoginPage - Invalid login action performed
+2021-03-22 15:45:42,113 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.LoginTest - valid_login_test
+2021-03-22 15:45:42,114 [main] INFO  pages.LoginPage - Setting e-mail
+2021-03-22 15:45:42,418 [main] INFO  pages.LoginPage - Setting password
+2021-03-22 15:45:43,160 [main] INFO  pages.LoginPage - Login action performed
+2021-03-22 15:45:43,530 [main] DEBUG utils.ExtentTestNGTestListener - On finish

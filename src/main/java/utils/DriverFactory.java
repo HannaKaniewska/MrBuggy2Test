@@ -28,7 +28,7 @@ public class DriverFactory {
 
         switch (driverType) {
             case CHROM -> {
-                File chromeExe = new File("src//main//resources//drivers//chromedriver");
+                File chromeExe = new File("src//main//resources//drivers//chromedriver 4");
                 ChromeDriverService chromeService = new ChromeDriverService.Builder()
                         .usingDriverExecutable(chromeExe)
                         .usingAnyFreePort()

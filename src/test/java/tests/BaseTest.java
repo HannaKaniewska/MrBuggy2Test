@@ -1,7 +1,5 @@
 package tests;
 
-import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.MediaEntityModelProvider;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -9,10 +7,7 @@ import org.testng.annotations.BeforeMethod;
 import pages.CockpitPage;
 import utils.DriverFactory;
 import utils.DriverType;
-import utils.SeleniumHelper;
 import utils.exceptions.NoSuchDriverException;
-
-import java.io.IOException;
 
 public abstract class BaseTest {
     protected WebDriver driver;

@@ -1,0 +1,54 @@
+[
+    {
+      "testCase": "Verify error message on wrong email format",
+      "email": "email.pl",
+      "password": "password",
+      "errorMessageList": [
+        "Nieprawidłowy format adresu e-mail. Wprowadź adres ponownie.",
+        "Adres e-mail i/lub hasło są niepoprawne."
+      ]
+    },
+    {
+      "testCase": "Verify error message on wrong email format",
+      "email": "email@ep",
+      "password": "password",
+      "errorMessageList": [
+        "Nieprawidłowy adres e-mail. Wprowadź adres ponownie.",
+        "Adres e-mail i/lub hasło są niepoprawne."
+      ]
+    },
+    {
+      "testCase": "Verify error message on empty email",
+      "email": "",
+      "password": "password",
+      "errorMessageList": [
+        "Pole wymagane",
+        "Adres e-mail i/lub hasło są niepoprawne."
+      ]
+    },
+    {
+      "testCase": "Verify error message on empty password",
+      "email": "admin@tc2014.pl",
+      "password": "",
+      "errorMessageList": [
+        "Pole wymagane",
+        "Adres e-mail i/lub hasło są niepoprawne."
+      ]
+    },
+    {
+      "testCase": "Verify error message on nonexistent email address",
+      "email": "email@address.pl",
+      "password": "12qwAS",
+      "errorMessageList": [
+        "Adres e-mail i/lub hasło są niepoprawne."
+      ]
+    },
+    {
+      "testCase": "Verify error message on wrong password",
+      "email": "admin@tc2014.pl",
+      "password": "pass",
+      "errorMessageList": [
+        "Adres e-mail i/lub hasło są niepoprawne."
+      ]
+    }
+  ]

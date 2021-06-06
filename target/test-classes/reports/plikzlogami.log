@@ -1,6 +1,0 @@
-2021-05-18 14:43:55,748 [main] DEBUG utils.ExtentTestNGTestListener - On start
-2021-05-18 14:44:01,438 [main] DEBUG utils.ExtentTestNGTestListener - On test starttests.LoginTest - valid_login_test
-2021-05-18 14:44:01,565 [main] INFO  pages.LoginPage - Setting e-mail
-2021-05-18 14:44:01,852 [main] INFO  pages.LoginPage - Setting password
-2021-05-18 14:44:03,256 [main] INFO  pages.LoginPage - Login action performed
-2021-05-18 14:44:03,625 [main] DEBUG utils.ExtentTestNGTestListener - On finish

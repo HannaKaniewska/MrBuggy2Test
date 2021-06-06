@@ -1,0 +1,37 @@
+2021-06-04 20:42:02,515 [main] DEBUG utils.TestListener - On start
+2021-06-04 20:42:08,376 [main] DEBUG utils.TestListener - On test starttests.LoginTest - invalid_login_test
+2021-06-04 20:42:08,449 [main] INFO  pages.LoginPage - Setting e-mail
+2021-06-04 20:42:08,754 [main] INFO  pages.LoginPage - Setting password
+2021-06-04 20:42:09,289 [main] INFO  pages.LoginPage - Invalid login action performed
+2021-06-04 20:42:09,366 [main] DEBUG utils.TestListener - Test succeeded
+2021-06-04 20:42:14,701 [main] DEBUG utils.TestListener - On test starttests.LoginTest - invalid_login_test
+2021-06-04 20:42:14,703 [main] INFO  pages.LoginPage - Setting e-mail
+2021-06-04 20:42:15,094 [main] INFO  pages.LoginPage - Setting password
+2021-06-04 20:42:15,846 [main] INFO  pages.LoginPage - Invalid login action performed
+2021-06-04 20:42:15,938 [main] DEBUG utils.TestListener - Test succeeded
+2021-06-04 20:42:20,076 [main] DEBUG utils.TestListener - On test starttests.LoginTest - invalid_login_test
+2021-06-04 20:42:20,078 [main] INFO  pages.LoginPage - Setting e-mail
+2021-06-04 20:42:20,238 [main] INFO  pages.LoginPage - Setting password
+2021-06-04 20:42:20,708 [main] INFO  pages.LoginPage - Invalid login action performed
+2021-06-04 20:42:20,767 [main] DEBUG utils.TestListener - Test succeeded
+2021-06-04 20:42:24,673 [main] DEBUG utils.TestListener - On test starttests.LoginTest - invalid_login_test
+2021-06-04 20:42:24,681 [main] INFO  pages.LoginPage - Setting e-mail
+2021-06-04 20:42:24,985 [main] INFO  pages.LoginPage - Setting password
+2021-06-04 20:42:25,387 [main] INFO  pages.LoginPage - Invalid login action performed
+2021-06-04 20:42:25,473 [main] DEBUG utils.TestListener - Test succeeded
+2021-06-04 20:42:29,276 [main] DEBUG utils.TestListener - On test starttests.LoginTest - invalid_login_test
+2021-06-04 20:42:29,277 [main] INFO  pages.LoginPage - Setting e-mail
+2021-06-04 20:42:29,601 [main] INFO  pages.LoginPage - Setting password
+2021-06-04 20:42:29,990 [main] INFO  pages.LoginPage - Invalid login action performed
+2021-06-04 20:42:30,055 [main] DEBUG utils.TestListener - Test succeeded
+2021-06-04 20:42:33,658 [main] DEBUG utils.TestListener - On test starttests.LoginTest - invalid_login_test
+2021-06-04 20:42:33,660 [main] INFO  pages.LoginPage - Setting e-mail
+2021-06-04 20:42:33,961 [main] INFO  pages.LoginPage - Setting password
+2021-06-04 20:42:34,379 [main] INFO  pages.LoginPage - Invalid login action performed
+2021-06-04 20:42:34,438 [main] DEBUG utils.TestListener - Test succeeded
+2021-06-04 20:42:38,276 [main] DEBUG utils.TestListener - On test starttests.LoginTest - valid_login_test
+2021-06-04 20:42:38,277 [main] INFO  pages.LoginPage - Setting e-mail
+2021-06-04 20:42:38,494 [main] INFO  pages.LoginPage - Setting password
+2021-06-04 20:42:39,111 [main] INFO  pages.LoginPage - Login action performed
+2021-06-04 20:42:39,157 [main] DEBUG utils.TestListener - Test succeeded
+2021-06-04 20:42:39,404 [main] DEBUG utils.TestListener - Test finished

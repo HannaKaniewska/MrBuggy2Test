@@ -37,9 +37,4 @@ public abstract class BaseTest {
         DriverFactory.resetDriver();
     }
 
-    protected MediaEntityModelProvider getScreenShot() throws IOException {
-        return MediaEntityBuilder.createScreenCaptureFromPath(
-                SeleniumHelper.takeScreenshot(driver)).build();
-    }
-
 }

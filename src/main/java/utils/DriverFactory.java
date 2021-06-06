@@ -18,7 +18,7 @@ public class DriverFactory {
     public static WebDriver getDriver(DriverType driverType) throws NoSuchDriverException {
         if (driverInstance == null) {
             getSpecificDriver(driverType);
-            Dimension dimension = new Dimension(1280, 800);  //wielkość przeglądarki powinna być taka sama dla wszystkich przeglądarek, żeby testy były wiarygodne
+            Dimension dimension = new Dimension(1280, 800);
             driverInstance.manage().window().setSize(dimension);
         }
         return driverInstance;

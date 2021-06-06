@@ -6,12 +6,12 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-import utils.ExtentTestNGTestListener;
-import utils.JsonUtils;
+import tests.testData.UserDataProvider;
+import utils.TestListener;
 
 import java.io.FileNotFoundException;
 
-@Listeners(ExtentTestNGTestListener.class)
+@Listeners(TestListener.class)
 public class LoginTest extends BaseTest{
 
 
@@ -35,6 +35,6 @@ public class LoginTest extends BaseTest{
 
     @DataProvider
     public Object[][] getData() throws FileNotFoundException {
-        return JsonUtils.getLoginData();
+        return UserDataProvider.getLoginData();
     }
 }

@@ -23,7 +23,7 @@ public class TestListener implements ITestListener {
     }
 
     public void onTestFailure(ITestResult result) {
-        log.debug("Test failed: " + result.getThrowable().getStackTrace());
+        log.debug("Test failed: " + result.getMethod().getMethodName());
     }
 
     public void onTestSkipped(ITestResult result) {

@@ -1,6 +1,6 @@
 package pages;
 
-import utils.SeleniumHelper;
+import utils.FluentWaitHelper;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,7 +24,7 @@ public class LoginPage {
     private List<WebElement> loginFormErrorMessageList;
 
 
-    private final SeleniumHelper helper;
+    private final FluentWaitHelper waitHelper;
     private final WebDriver driver;
     private final Logger log = Logger.getLogger(LoginPage.class);
 
@@ -32,11 +32,12 @@ public class LoginPage {
     public LoginPage (WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
-        this.helper = new SeleniumHelper(driver);
+        this.waitHelper = new FluentWaitHelper(driver);
     }
 
     public LoginPage setEmail (String email) {
         log.info("Setting e-mail");
+        waitHelper.waitForElementToBeDisplayed(emailInput);
         emailInput.click();
         emailInput.sendKeys(email);
         return this;
@@ -49,9 +50,8 @@ public class LoginPage {
         return this;
     }
 
-    public LoginPage clickLogin() {
+    public void clickLogin() {
         loginButton.click();
-        return this;
     }
 
     public CockpitPage performLogin (String email, String password) {

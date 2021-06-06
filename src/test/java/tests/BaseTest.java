@@ -15,7 +15,6 @@ public abstract class BaseTest {
     protected final String loginUrl = "http://demo.mrbuggy2.testarena.pl/zaloguj";
     protected final String loginEmail = "admin@tc2014.pl";
     protected final String loginPassword = "12qwAS";
-    protected final String leaderRoleName = "LEADER";
 
 
 

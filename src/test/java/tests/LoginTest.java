@@ -1,18 +1,18 @@
 package tests;
 
-import businessLayer.LoginBL;
+import tests.testData.userData.UserData;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-import tests.testData.UserDataProvider;
+import tests.testData.userData.UserDataProvider;
 import utils.TestListener;
 
 import java.io.FileNotFoundException;
 
 @Listeners(TestListener.class)
-public class LoginTest extends BaseTest{
+public class LoginTest extends BaseTest {
 
 
     @Test
@@ -25,7 +25,7 @@ public class LoginTest extends BaseTest{
     }
 
     @Test(dataProvider = "getData")
-    public void invalid_login_test(LoginBL loginData) {
+    public void invalid_login_test(UserData loginData) {
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage = loginPage.performInvalidLogin(loginData.getEmail(), loginData.getPassword());

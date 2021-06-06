@@ -28,9 +28,9 @@ public class LoginTest extends BaseTest{
     public void invalid_login_test(LoginBL loginData) {
 
         LoginPage loginPage = new LoginPage(driver);
-        loginPage = loginPage.performInvalidLogin(loginData.email, loginData.password);
+        loginPage = loginPage.performInvalidLogin(loginData.getEmail(), loginData.getPassword());
         //Check if the error messages are displayed
-        Assert.assertTrue(loginPage.isErrorMessageListVisible(loginData.errorMessageList), "Expected: " + loginData.errorMessageList);
+        Assert.assertTrue(loginPage.isErrorMessageListVisible(loginData.getErrorMessageList()), "Expected: " + loginData.getErrorMessageList());
     }
 
     @DataProvider
